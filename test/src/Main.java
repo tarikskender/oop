@@ -2,16 +2,17 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
-//         exercise1();
+         exercise1();
 //         exercise2();
 //         exercise3();
 //         exercise4();
 //         exercise5();
-//           exercise6();
-//           exercise7();
-//           exercise8();
-//           exercise9();
-        exercise10();
+//         exercise6();
+//         exercise7();
+//         exercise8();
+//         exercise9();
+//         exercise10();
+
     }
     public static void exercise1(){
         Scanner myObj = new Scanner(System.in);
