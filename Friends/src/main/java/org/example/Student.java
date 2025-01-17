@@ -22,7 +22,10 @@ public class Student {
         return id;
     }
 
-    public String getName() {
+    public String getName() throws StudentNotFoundException {
+        if(name == null || name.isEmpty()){
+            throw new StudentNotFoundException("Name not available for student ID: "+ id);
+        }
         return name;
     }
 

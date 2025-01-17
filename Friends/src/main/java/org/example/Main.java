@@ -2,37 +2,26 @@ package org.example;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+import static org.example.StudentSystem.readStudents;
+
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws StudentNotFoundException {
 
-        List<Student> students = new ArrayList<>();
-        String filePath = "/Users/skendimac/Documents/java/Friends/src/main/java/org/example/students.csv";;
 
-        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))){
-            String Line;
-            while((Line = reader.readLine()) != null){
+        String filePath = "/Users/skendimac/Documents/java/Friends/src/main/java/org/example/students.csv";
 
-                String[] fields = Line.split(",");
-                int id = Integer.parseInt(fields[0]);
-                String name = fields[1];
-                String university = fields[2];
-                String department = fields[3];
-                double gpa = Double.parseDouble(fields[4]);
+        List<Student> students = StudentSystem.readStudents(filePath);
 
-                Student student = new Student(id,name,university,department,gpa);
-                students.add(student);
-            }
-        }
-        catch (FileNotFoundException e){
-            System.err.println("File not found: " + filePath);
-        }
-        catch (IOException e){
-            System.err.println("Error reading the file: " + e.getMessage());
+        for(Student record : students){
+            System.out.println(record);
         }
 
-        for(Student each : students){
-            System.out.println(each.getName());
-        }
+        System.out.println(StudentSystem.noOfStudents());
+        System.out.println(StudentSystem.getStudentById(2));
+        System.out.println(StudentSystem.getHighestGPAStudent());
+        System.out.println(StudentSystem.getLongestNameStudent());
+
+
     }
 }
